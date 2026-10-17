@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Drain Monitor</title>
+  <link rel="stylesheet" href="./style.css">
+  <!-- Leaflet: interactive OpenStreetMap display (no Google Maps API key needed) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script defer src="./app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>Smart Drain Monitor</h1>
+      <p>IoT drainage and flood-risk monitoring</p>
+    </div>
+    <span class="mode-badge" id="modeBadge">DEMO DATA — NOT LIVE</span>
+  </header>
+
+  <main class="dashboard">
+    <section class="summary-grid" aria-label="Drain summary">
+      <article class="summary-card">
+        <p>Total drains</p>
+        <strong id="totalDrains">0</strong>
+      </article>
+      <article class="summary-card">
+        <p>Warnings</p>
+        <strong id="warningCount">0</strong>
+      </article>
+      <article class="summary-card">
+        <p>High risk</p>
+        <strong id="highRiskCount">0</strong>
+      </article>
+    </section>
+
+    <section class="legend" aria-label="Map legend">
+      <span><i class="dot normal"></i>Normal</span>
+      <span><i class="dot warning"></i>Warning</span>
+      <span><i class="dot risk"></i>High risk</span>
+    </section>
+
+    <section class="map-section">
+      <div id="map" role="application" aria-label="Map showing demo drain locations"></div>
+      <p class="map-note">Demo locations only. Replace sample coordinates with verified drain locations before real-world use.</p>
+    </section>
+
+    <section class="drain-section">
+      <div class="section-heading">
+        <div>
+          <h2>Drain status</h2>
+          <p>Click a map marker or a drain card to inspect its status.</p>
+        </div>
+        <span id="updated" class="updated-label">Loading demo data…</span>
+      </div>
+      <div id="drainList" class="drain-list"></div>
+    </section>
+
+    <footer>
+      Experimental student prototype. Demo readings are simulated and are not live sensor data or official flood warnings.
+    </footer>
+  </main>
+</body>
+</html>
+
+
